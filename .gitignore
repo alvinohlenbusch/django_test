@@ -1,3 +1,4 @@
 *.pyc
 /myprojectenv/
 /venv/
+/static/
