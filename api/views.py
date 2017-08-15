@@ -30,11 +30,16 @@ class AccountList(generics.ListCreateAPIView):
     queryset = Account.objects.all()
     serializer_class = AccountSerializer
     permission_classes = (IsAuthenticatedOrReadOnly, )
+    lookup_url_kwarg = 'note_id'
     
     def perform_create(self, serializer):
         serializer.save(
             created_by=self.request.user,
             note_id=self.kwargs['note_id'])
+        
+    def get_queryset(self):
+        note = self.kwargs['note_id']
+        return Account.objects.filter(note__id=note)
         
 class AccountDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = AccountSerializer

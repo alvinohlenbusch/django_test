@@ -15,11 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from api.resources import NoteResource
 from api import views
 from rest_framework.authtoken.views import obtain_auth_token
-
-note_resource = NoteResource()
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
