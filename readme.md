@@ -20,7 +20,7 @@
 	$ virtualenv myprojectenv
 	$ source myprojectenv/bin/activate
 	$
-	$ pip install django gunicorn psycopg2
+	$ pip install django gunicorn psycopg2 djangorestframework
 	$
 	$ python manage.py makemigrations
 	$ python manage.py migrate
