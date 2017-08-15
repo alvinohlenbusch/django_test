@@ -49,4 +49,3 @@ class AccountDetail(generics.RetrieveUpdateDestroyAPIView):
     def get_queryset(self):
         account = self.kwargs['account_id']
         return Account.objects.filter(id=account)
-    
