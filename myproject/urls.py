@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from api import views
+import capitalone.views
+
 from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
@@ -26,6 +28,8 @@ urlpatterns = [
     url(r'^api/notes/(?P<note_id>[0-9]+)/accounts/$', views.AccountList.as_view(), name='get_accounts'),
     url(r'^api/notes/(?P<note_id>[0-9]+)/accounts/(?P<account_id>[0-9]+)/$', views.AccountDetail.as_view(), name='get_account'),
     url(r'^api-token-auth/', obtain_auth_token),
+    url(r'^capitalone/$', capitalone.views.AccountsPage.as_view()),
+    url(r'^synapseusers/$', capitalone.views.SynapseUsers.as_view())
 ]
 
 #Add Django site authentication urls (for login, logout, password management)

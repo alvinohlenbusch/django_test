@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %} {% block content %}
+<p>CapitalOne account applications</p>
+<table>
+	<tr>
+		<td>Status</td><td>{{ applicationStatus }}</td>
+	</tr>
+	<tr>
+		<td>bankABANumber</td><td>{{ bankABANumber }}</td>
+	</tr>
+
+	<tr>
+		<td>accountNumber</td><td>{{ accountNumber }}</td>
+	</tr>
+</table>
+
+
+{% endblock %}
