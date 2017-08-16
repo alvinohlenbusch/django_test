@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.views import generic
-from capitalone.services import CapitalOne, SynapseFI
+from integrationApis.services import CapitalOne, SynapseFI
 
 from django.shortcuts import render
 
