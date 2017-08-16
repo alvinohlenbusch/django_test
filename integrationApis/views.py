@@ -15,7 +15,7 @@ class AccountsPage(generic.TemplateView):
                        'applicationStatus': account_applications_list['applicationStatus']})
     # Create your views here.
 class SynapseUsers(generic.TemplateView):
-    def get(self, request):
+    def get(self, request, query=''):
         syn = SynapseFI()
-        users_list = syn.get_users()
+        users_list = syn.get_users(query)
         return render(request, 'synapseusers.html', {'users_list': users_list })

@@ -2,14 +2,14 @@ import requests
 import json
 
 class SynapseFI():
-    def get_users(self):
+    def get_users(self, query):
         client_id = 'client_id_2bb1e412edd311e6bd04e285d6015267'
         client_secret = 'client_secret_2bb1e714edd311e6bd04e285d6015267'
         fp = 'e83cf6ddcf778e37bfe3d48fc78a6502062fc1030449628c699ef3c4ffa6f9a2000b8acc3c4c0addd8013285bb52c89e5267b628ca02fa84a6d71fe186b7cd5d'
         hdr = {'x-sp-gateway': client_id + '|' + client_secret, 
                'x-sp-user-ip': '127.0.0.1 ',
                'x-sp-user': '|' + fp}
-        url = 'https://uat-api.synapsefi.com/v3.1/users?show_refresh_tokens=yes&per_page=10&page=1&query=alvin' 
+        url = 'https://uat-api.synapsefi.com/v3.1/users?show_refresh_tokens=yes&per_page=10&page=1&query='  + query
         r = requests.get(url, headers=hdr)
         answer = r.json()
         return answer
