@@ -25,4 +25,14 @@ class Account(models.Model):
     title = models.CharField(max_length=255)
     accountNumber = models.CharField(max_length=255)
     created_by = models.ForeignKey(User)
+    
+class SynapseUser(models.Model):
+    """
+    SynapseUser Model
+    Defines the attributes of a Synapse user
+    """
+    covered_user = models.ForeignKey(User)
+    synapse_id = models.CharField(max_length=255)
+    refresh_token = models.CharField(max_length=255)
+    
 

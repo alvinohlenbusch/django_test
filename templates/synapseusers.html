@@ -1,16 +1,23 @@
-{% extends "base_generic.html" %} {% block content %}
+
+{% extends "base_generic.html" %} 
+{% load filter %}
+{% block content %}
 <p>SynapseFI Users</p>
 <table>
 <tr>
-<th>Name(s)</th><th>refresh token</th><th>permission</th>
+<th>Name(s)</th><th>id</th><th>email</th><th>refresh token</th><th>permission</th>
 </tr>
 {% for user in users_list.users %}
     <tr>
+    <td>{{user|get:"_id"}}, </td>
     <td>
-    {% for name in user.legal_names %}{{ name }} {% endfor %}
+    {% for name in user.legal_names %}{{ name }}, {% endfor %}
     </td>
-    <td>{{ user.refresh_token }}
-    </td><td>{{ user.permission }}</td>
+    <td>
+    {% for login in user.logins %}{{ login.email }}, {% endfor %}
+    </td>
+    <td>{{ user.refresh_token }}</td>
+    <td>{{ user.permission }}</td>
     </tr>
 {% endfor %}
 </table>

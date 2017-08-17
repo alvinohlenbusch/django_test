@@ -2,4 +2,5 @@ eclipse.preferences.version=1
 encoding//api/admin.py=utf-8
 encoding//api/models.py=utf-8
 encoding//api/views.py=utf-8
+encoding//integrationApis/models.py=utf-8
 encoding//integrationApis/views.py=utf-8

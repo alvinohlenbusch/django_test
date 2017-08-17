@@ -29,8 +29,11 @@ urlpatterns = [
     url(r'^api/notes/(?P<note_id>[0-9]+)/accounts/(?P<account_id>[0-9]+)/$', views.AccountDetail.as_view(), name='get_account'),
     url(r'^api-token-auth/', obtain_auth_token),
     url(r'^capitalone/$', integrationApis.views.AccountsPage.as_view()),
-    url(r'^synapseusers/(?P<query>\w+)/$', integrationApis.views.SynapseUsers.as_view()),
-    url(r'^synapseusers/$', integrationApis.views.SynapseUsers.as_view())
+    url(r'^synapseusers/(?P<query>[\w@\. \/&-]+)/$', integrationApis.views.SynapseUsers.as_view()),
+    url(r'^synapseusers/$', integrationApis.views.SynapseUsers.as_view()),
+    url(r'^synapseusersapi/(?P<query>[\w@\. \/&-]+)/$', integrationApis.views.SynapseUsersAPI.as_view()),
+    url(r'^synapseusersapi/$', integrationApis.views.SynapseUsersAPI.as_view()),
+    url(r'^synapseaccountsapi/(?P<user_id>[\w@\. \/&-]+)/$', integrationApis.views.SynapseGetAccounts.as_view()),
 ]
 
 #Add Django site authentication urls (for login, logout, password management)
