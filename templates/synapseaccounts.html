@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %} 
+{% load filter %}
+{% block content %}
+<p>SynapseFI Accounts</p>
+<table>
+<tr>
+<th>ID</th><th>name</th><th>balance</th><th>type</th><th>nickname</th><th>class</th>
+</tr>
+{% for node in account_list.nodes %}
+    <tr>
+    <td>{{node|get:"_id"}} </td>
+    <td>{{ node.info.bank_name }}</td>
+    <td>{{ node.info.balance.amount }} {{ node.info.balance.currency }}</td>
+    <td>{{ node.type }}</td>
+    <td>{{ node.info.nickname }}</td>
+    <td>{{ node.info.class }}</td>
+    </tr>
+{% endfor %}
+</table>
+
+{% endblock %}

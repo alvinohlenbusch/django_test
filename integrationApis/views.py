@@ -31,9 +31,16 @@ class SynapseUsersAPI(generic.TemplateView):
         
         return JsonResponse(users_list)
 
-class SynapseGetAccounts(generic.TemplateView):
+class SynapseGetAccountsAPI(generic.TemplateView):
     """ a call to test getting a user's account information """
     def get(selfself, request, user_id):
         syn = SynapseFI()
         account_list = syn.get_accounts(user_id)
         return JsonResponse(account_list)
+
+class SynapseGetAccounts(generic.TemplateView):
+    """ a call to test getting a user's account information """
+    def get(selfself, request, user_id):
+        syn = SynapseFI()
+        account_list = syn.get_accounts(user_id)
+        return render(request, 'synapseaccounts.html', {'account_list': account_list})

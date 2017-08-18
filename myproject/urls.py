@@ -33,7 +33,8 @@ urlpatterns = [
     url(r'^synapseusers/$', integrationApis.views.SynapseUsers.as_view()),
     url(r'^synapseusersapi/(?P<query>[\w@\. \/&-]+)/$', integrationApis.views.SynapseUsersAPI.as_view()),
     url(r'^synapseusersapi/$', integrationApis.views.SynapseUsersAPI.as_view()),
-    url(r'^synapseaccountsapi/(?P<user_id>[\w@\. \/&-]+)/$', integrationApis.views.SynapseGetAccounts.as_view()),
+    url(r'^synapseaccounts/(?P<user_id>[\w@\. \/&-]+)/$', integrationApis.views.SynapseGetAccounts.as_view()),
+    url(r'^synapseaccountsapi/(?P<user_id>[\w@\. \/&-]+)/$', integrationApis.views.SynapseGetAccountsAPI.as_view()),
 ]
 
 #Add Django site authentication urls (for login, logout, password management)
